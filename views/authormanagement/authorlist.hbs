@@ -1,0 +1,26 @@
+{{#each authors}}
+<li><a href="/author-management/{{this._id}}">{{this.first_name}}</a></li>
+{{/each}}
+<form method="get" action="/author-management" id="loginForm">
+    <input type="text" style="width: 200px;height: 30px;" required name="first_name" id="first_name" placeholder="FirstName">
+    <input type="text" style="width: 200px;height: 30px;" required name="last_name" id="last_name" placeholder="LastName">
+    <button type="submit">login</button>
+    <font style="color: red;size: 10px" id="toRegister">click here to register</font>
+</form>
+<form method="post" action="/author-management" id="registerForm" style="display: none">
+    <input type="text" style="width: 200px;height: 30px;" required name="first_name" id="first_name" placeholder="FirstName">
+    <input type="text" style="width: 200px;height: 30px;" required name="last_name" id="last_name" placeholder="LastName">
+    <button type="submit">register</button>
+    <font style="color: red;size: 10px" id="toLogin">click here to login</font>
+</form>
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+    $("#toRegister").click(function () {
+        $("#loginForm").css('display','none');
+        $("#registerForm").css('display','');
+    })
+    $("#toLogin").click(function () {
+        $("#loginForm").css('display','');
+        $("#registerForm").css('display','none');
+    })
+</script>
